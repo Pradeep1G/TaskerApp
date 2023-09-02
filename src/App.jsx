@@ -191,7 +191,7 @@ function App() {
 
           </div>
 
-          <div className='pt-0'>
+          <div className='pt-5 lg:pt-0'>
             <Footer />
           </div>
 
