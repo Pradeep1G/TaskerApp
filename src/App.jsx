@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import TimeImg from './assets/TimeImg.jpg'
-import { IoIosMail } from 'react-icons/Io';
-import { RiLockPasswordFill } from 'react-icons/Ri';
+import { IoIosMail } from 'react-icons/io';
+import { RiLockPasswordFill } from 'react-icons/ri';
 
 // import './App.css'
 
