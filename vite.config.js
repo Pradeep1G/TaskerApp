@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-icons/Io']
+      external: ['react-icons/Io', 'react-icons/Ri']
     }
   }
 })
