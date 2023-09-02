@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import TimeImg from './assets/TimeImg.jpg'
 import { IoIosMail } from 'react-icons/io';
 import { RiLockPasswordFill } from 'react-icons/ri';
+import Footer from './components/Footer';
 
 // import './App.css'
 
@@ -188,6 +189,10 @@ function App() {
 
 
 
+          </div>
+
+          <div className='pt-0'>
+            <Footer />
           </div>
 
       

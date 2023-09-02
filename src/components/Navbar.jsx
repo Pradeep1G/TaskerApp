@@ -3,7 +3,7 @@ export default function Navbar(){
     return (
     <>
 
-        <div className="px-5 sm:px-2 py-5 bg-blue-600">
+        <div className="px-5 sm:px-2 py-5 bg-blue-500">
             <div className="flex items-center justify-between">
                 <div className="flex items-center text-5xl font-bold px-5">
                     <p>Tasker</p>
