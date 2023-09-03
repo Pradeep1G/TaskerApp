@@ -184,6 +184,7 @@ function App() {
         } else {
           setIsResendDisabled(false);
           setOtpInput(false);
+          setRegisterOTP("");
         }
       }, 1000);
     }
@@ -411,8 +412,9 @@ function App() {
 
 
               <input
-                className=' outline-none  border-b-2 border-solid border-black  pb-2 px-2'
-                
+                className=' outline-none w-24 tracking-widest  border-b-2 border-solid border-black  pb-2 px-2'
+                maxLength={6}
+                value={RegisterOTP}
                 type='number'
                 placeholder='OTP'
                 onChange={(e) => {
