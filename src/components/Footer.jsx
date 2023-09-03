@@ -1,6 +1,6 @@
 import { TiSocialLinkedin } from "react-icons/ti";
 import { BsGithub } from "react-icons/bs";
-import { FaHackerrank } from "react-icons/fa";
+import { FaHackerrank, FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="font-semibold flex justify-center ">Copyrights © 2023</div>
           <div className="flex justify-center space-x-2 lg:space-x-4 text-xl">
             <a href="https://www.linkedin.com/in/pradeep-pradeep-1bbb3521a/">
-              <TiSocialLinkedin />
+              <FaLinkedin />
             </a>
             <a href="https://github.com/Pradeep1G/">
               <BsGithub />
