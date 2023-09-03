@@ -7,43 +7,12 @@ import {TiTickOutline} from 'react-icons/ti'
 import Footer from './components/Footer';
 import axios from 'axios';
 import { useAsyncError, useNavigate } from 'react-router-dom';
-
+import LoadingScreen from './components/Loader';
 // import './App.css'
 
 
 
 
-function LoadingScreen() {
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        backdropFilter: "blur(1px)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 9999,
-        flexDirection: "column"
-      }}
-    >
-      <div
-        style={{
-          width: "100px",
-          height: "100px",
-          border: "15px solid #D8D9DA",
-          borderTopColor: "grey",
-          borderRadius: "50%",
-          animation: "spin 1s linear infinite",
-        }}
-      ></div>
-      <p>Please Wait</p>
-    </div>
-  );
-}
 
 
 
@@ -53,6 +22,9 @@ function LoadingScreen() {
 
 
 function App() {
+
+  const severPath = "https://servetasker.onrender.com"
+  // const serverPath = "http://127.0.0.1:5000"
 
   const [Register, setRegister] = useState(false)
   const [Login, setLogin] = useState(true)
@@ -76,7 +48,7 @@ function App() {
 
   const [showRegisterSuccess, setShowRegisterSuccess] = useState(false);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   const navigate = useNavigate();
@@ -106,7 +78,7 @@ function App() {
     }
     console.warn(data)
     
-    const response = await axios.post("http://127.0.0.1:5000/checkUser",data)
+    const response = await axios.post(severPath+"/checkUser",data)
     console.warn(response.data)
     setIsLoading(false)
 
@@ -143,7 +115,7 @@ function App() {
         if(isRegisterMailVerified){
           setIsLoading(true)
 
-          const response = await axios.put("http://127.0.0.1:5000/addUser",data)
+          const response = await axios.put(severPath+"/addUser",data)
     
           setIsLoading(false)
           
@@ -175,7 +147,7 @@ function App() {
     const data = {
       "email":RegisterMail
     }
-    const response =await  axios.post("http://127.0.0.1:5000/verifyMail/"+RegisterMail,data)
+    const response =await  axios.post(severPath+"/verifyMail/"+RegisterMail,data)
     setIsLoading(false)
     console.warn(response.data)
     if(response.data.Act_already_Registered){
