@@ -7,7 +7,7 @@ import {RiInstagramFill} from "react-icons/ri"
 export default function Footer(){
     return(
         <>
-            <div className="py-5 bg-blue-500 lg:px-32">
+            <div className="py-5 bg-blue-400 text-blue-950 lg:px-32">
                 <div className="flex justify-between items-center">
                     <div className="text-3xl font-bold">Tasker</div>
                     <div className="font-semibold">Copyrights © 2023</div>

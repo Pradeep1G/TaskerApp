@@ -165,8 +165,21 @@ function App() {
 
   return (
     <>
-      
-      <Navbar />
+      <div className='navbar'>
+      <div className="px-5 sm:px-2 py-5 bg-blue-400">
+            <div className="flex items-end justify-between">
+                <div className="flex items-center text-blue-950 text-5xl font-bold px-5">
+                    <p>Tasker</p>
+                </div>
+                <div className="px-5 flex">
+                    <div className="flex space-x-5 text-blue-950">
+                        <p onClick={()=>{setLogin(true);setRegister(false)}} className='cursor-pointer'><b>Login</b></p>
+                        <p onClick={()=>{setLogin(false);setRegister(true)}} className='cursor-pointer'><b>Register</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
 
       {showRegisterSuccess && (
             <div className='bg-blue-100 border border-blue-900 text-blue-700 px-4 py-3 rounded relative' role='alert'>
@@ -322,8 +335,8 @@ function App() {
                   Resend ({ResendTimeout}s)
                 </button>
               ) : (
-                <button onClick={verifyRegisterMail} className='bg-blue-500 p-2 px-4 text-sm rounded-xl'>
-                  Verify
+                <button onClick={verifyRegisterMail} className='bg-blue-400 text-blue-950 p-2 px-4 text-sm font-semibold rounded-xl'>
+                  <p>Verify</p>
                 </button>
               )}
 
@@ -399,7 +412,7 @@ function App() {
             </div>
 
             <div className='pt-8'>
-              <button  className='bg-blue-500 p-4 px-8 text-xl rounded-xl'>Login</button>
+              <button  className='bg-blue-500 text-blue-950 p-4 px-8 text-xl rounded-xl'>Login</button>
             </div>
 
             <div className='pt-8'>
