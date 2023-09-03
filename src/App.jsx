@@ -10,6 +10,48 @@ import { useAsyncError, useNavigate } from 'react-router-dom';
 
 // import './App.css'
 
+
+
+
+function LoadingScreen() {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backdropFilter: "blur(1px)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 9999,
+        flexDirection: "column"
+      }}
+    >
+      <div
+        style={{
+          width: "100px",
+          height: "100px",
+          border: "15px solid #D8D9DA",
+          borderTopColor: "grey",
+          borderRadius: "50%",
+          animation: "spin 1s linear infinite",
+        }}
+      ></div>
+      <p>Please Wait</p>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
 function App() {
 
   const [Register, setRegister] = useState(false)
@@ -34,6 +76,7 @@ function App() {
 
   const [showRegisterSuccess, setShowRegisterSuccess] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const navigate = useNavigate();
@@ -54,6 +97,7 @@ function App() {
 
 
   const doLogin = async(e) => {
+    setIsLoading(true)
     e.preventDefault();
 
     const data = {
@@ -64,20 +108,26 @@ function App() {
     
     const response = await axios.post("http://127.0.0.1:5000/checkUser",data)
     console.warn(response.data)
+    setIsLoading(false)
+
     if(response.data.act_available){
       if(response.data.is_password_correct){
         // alert("Login Success")
+        setIsLoading(false)
         navigate('/home')
       }else{
+        setIsLoading(false)
         alert("Wrong Password")
       }
     }else{
+      setIsLoading(false)
       alert("Invalid Mail Id")
     }
-
+    setIsLoading(false)
   }
 
   const  doRegister = async(e) => {
+    
     e.preventDefault()
 
     const data = {
@@ -91,7 +141,12 @@ function App() {
     
     }else{
         if(isRegisterMailVerified){
+          setIsLoading(true)
+
           const response = await axios.put("http://127.0.0.1:5000/addUser",data)
+    
+          setIsLoading(false)
+          
           console.warn(response.data)
           navigate('/')
           setShowRegisterSuccess(true)
@@ -99,7 +154,7 @@ function App() {
           setRegister(false);
           setTimeout(() => {
             setShowRegisterSuccess(false);
-          }, 2000);
+          }, 4000);
         }
         else{
           alert("provided mail is not verified!")
@@ -110,6 +165,9 @@ function App() {
   }
 
   const verifyRegisterMail = async(e) => {
+    setIsLoading(true)
+
+    setIsLoading(true)
     e.preventDefault()
     if(!RegisterMail){
       return
@@ -118,12 +176,17 @@ function App() {
       "email":RegisterMail
     }
     const response =await  axios.post("http://127.0.0.1:5000/verifyMail/"+RegisterMail,data)
+    setIsLoading(false)
     console.warn(response.data)
     if(response.data.Act_already_Registered){
+      setIsLoading(false)
+
       alert("An account is already exits with the given mail.")
     }
     else{
       if(response.data.isOTPsent){
+        setIsLoading(false)
+
         setGeneratedOTP(response.data.OTP)
         setOtpInput(true)
         startResendTimer()
@@ -131,6 +194,7 @@ function App() {
         alert("Invalid Mail Id")
       }
     }
+    setIsLoading(false)
   }
 
 
@@ -165,6 +229,11 @@ function App() {
 
   return (
     <>
+
+{isLoading &&  <LoadingScreen />}
+
+
+
       <div className='navbar'>
       <div className="px-5 sm:px-2 py-5 bg-blue-400">
             <div className="flex items-end justify-between">
@@ -196,8 +265,8 @@ function App() {
                   <title>Close</title>
                   <path
                     d='M14.293 5.293a1 1 0 011.414 0l.293.293V3a1 1 0 112 0v2.586l.293-.293a1 1 0 111.414 1.414L17.414 6l2.293 2.293a1 1 0 01-1.414 1.414L16 7.414l-2.293 2.293a1 1 0 01-1.414-1.414L14.586 6l-2.293-2.293a1 1 0 010-1.414 1 1 0 011.414 0L16 4.586l2.293-2.293z'
-                    clip-rule='evenodd'
-                    fill-rule='evenodd'
+                    clipRule='evenodd'
+                    fillRule='evenodd'
                   ></path>
                 </svg>
               </span>
