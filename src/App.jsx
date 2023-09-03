@@ -137,13 +137,14 @@ function App() {
   }
 
   const verifyRegisterMail = async(e) => {
-    setIsLoading(true)
 
-    setIsLoading(true)
+
     e.preventDefault()
     if(!RegisterMail){
       return
     }
+    setIsLoading(true)
+
     const data = {
       "email":RegisterMail
     }
