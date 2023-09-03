@@ -304,7 +304,7 @@ function App() {
               <button  className='bg-blue-500 p-4 px-8 text-xl rounded-xl'>Login</button>
             </div>
 
-            <div className='pt-8'>
+            <div className='pt-5 pb-6'>
             <p><a className='' style={{ cursor: 'pointer', textDecoration:"underline", color:"blue" }}  onClick={toggleForm}>Create Account,</a> If not there.</p>
             </div>
 
@@ -456,7 +456,7 @@ function App() {
               <button  className='bg-blue-500 text-blue-950 p-4 px-8 text-xl rounded-xl'>Login</button>
             </div>
 
-            <div className='pt-8'>
+            <div className='pt-5 pb-6'>
             <p><a className='' style={{ cursor: 'pointer', textDecoration:"underline", color:"blue" }}  onClick={toggleForm}>Login,</a> If you already have an account.</p>
             </div>
 
