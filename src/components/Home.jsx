@@ -39,7 +39,7 @@ export default function Home() {
 
       try {
         setIsLoading(true);
-        const response = await axios.post("http://127.0.0.1:5000/getUserData", data);
+        const response = await axios.post(severPath+"/getUserData", data);
         setIsLoading(false);
         const userData = response.data["data"][0]; // Assuming you want to store the first item in the array
 
