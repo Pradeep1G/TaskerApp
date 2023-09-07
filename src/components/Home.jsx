@@ -525,7 +525,7 @@ export default function Home() {
 
 
 
-      <div className={"flex justify-center "+(bgColor)}>
+      <div className={"flex justify-center overflow-y-scroll "+(bgColor)}>
         <div className="w-1/2">
           <div
            className=" border p-5 rounded-lg m-4 border-black"
@@ -836,7 +836,11 @@ export default function Home() {
 
 
 
+      <div className="absolute w-full">
+
       <Footer />
+      </div>
+
     </>
   );
 }
