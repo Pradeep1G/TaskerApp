@@ -135,7 +135,7 @@ const UpdateEventData = async(e) => {
                 <form onSubmit={UpdateEventData}>
 
                     <div className="py-2">
-                        <label>Event Name :</label>
+                        <label>Event Name : &nbsp;</label>
                         <input 
                             className="px-1 border border-black"
                             placeholder="Event Name"
@@ -148,7 +148,7 @@ const UpdateEventData = async(e) => {
 
 
                     <div className="flex py2">
-                    <label>Start Date :</label>
+                    <label>Start Date : &nbsp;</label>
 
                         <input 
                             className=" pl-2"
@@ -160,7 +160,7 @@ const UpdateEventData = async(e) => {
                     </div>
 
                     <div className="flex py-2">
-                    <label>End Date :</label>
+                    <label>End Date : &nbsp;</label>
 
                         <input 
                             className="pl-2"
@@ -173,7 +173,7 @@ const UpdateEventData = async(e) => {
 
                     <div  className="flex items-start py-2">
                     <div  className="flex-col items-start">
-                    <label>Description : </label>
+                    <label>Description : &nbsp;</label>
                     </div>
                         <textarea
                             className="border border-black ml-1 p-1"
@@ -186,7 +186,7 @@ const UpdateEventData = async(e) => {
 
 
                     <div className="flex items-start py-2">
-                    <label>Status : </label>
+                    <label>Status : &nbsp;</label>
 
                         <input 
                             className="px-1 border border-black"
