@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.14.8",
+    "@mui/material": "^5.14.8",
     "axios": "^1.5.0",
     "framer-motion": "^10.16.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "react-simple-widgets": "^6.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

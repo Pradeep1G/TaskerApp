@@ -86,6 +86,9 @@ function App() {
       if(response.data.is_password_correct){
         // alert("Login Success")
         setIsLoading(false)
+        // console.warn(response.data)
+        localStorage.setItem("userName", response.data.name)
+        localStorage.setItem("collectionName",LoginMail.slice(0,-10))
         navigate('/home')
       }else{
         setIsLoading(false)

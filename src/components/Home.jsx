@@ -1,18 +1,138 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import DisplayEvent from "./DisplayEvent";
 import { json } from "react-router-dom";
-import {CiEdit} from 'react-icons/ci'
+import {CiEdit } from 'react-icons/ci'
+import {IoMdArrowDropdown} from 'react-icons/io'
+import { CgProfile} from 'react-icons/cg'
+
 
 import "../App.css"
 import LoadingScreen from "./Loader";
+import Footer from './Footer';
+
+
+
+
+
+
+
+
+// import * as React from 'react';
+// import Box from '@mui/material/Box';
+// import Drawer from '@mui/material/Drawer';
+// import Button from '@mui/material/Button';
+// import List from '@mui/material/List';
+// import Divider from '@mui/material/Divider';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import MailIcon from '@mui/icons-material/Mail';
+
+
+
+
+
+
+
+
+
 
 export default function Home() {
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const [state, setState] = React.useState({
+  //   top: false,
+  //   left: false,
+  //   bottom: false,
+  //   right: false,
+  // });
+
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  //     return;
+  //   }
+
+  //   setState({ ...state, [anchor]: open });
+  // };
+
+  // const list = (anchor) => (
+  //   <Box
+  //     sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+  //     role="presentation"
+  //     onClick={toggleDrawer(anchor, false)}
+  //     onKeyDown={toggleDrawer(anchor, false)}
+  //   >
+  //     <List>
+  //       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+  //         <ListItem key={text} disablePadding>
+  //           <ListItemButton>
+  //             <ListItemIcon>
+  //               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+  //             </ListItemIcon>
+  //             <ListItemText primary={text} />
+  //           </ListItemButton>
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //     <Divider />
+  //     <List>
+  //       {['All mail', 'Trash', 'Spam'].map((text, index) => (
+  //         <ListItem key={text} disablePadding>
+  //           <ListItemButton>
+  //             <ListItemIcon>
+  //               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+  //             </ListItemIcon>
+  //             <ListItemText primary={text} />
+  //           </ListItemButton>
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //   </Box>
+  // );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const severPath = "https://servetasker.onrender.com"
   // const severPath = "http://127.0.0.1:5000";
-  const collectionName = "geddadavenkatapradeep";
+
+
+  const collectionName = localStorage.getItem("collectionName");
+  const userName = localStorage.getItem("userName");
 
   const [userDataDict, setuserDataDict] = useState({});
   const [NoOfDoingWorks, setNoOfDoingWorks] = useState(0);
@@ -29,6 +149,50 @@ export default function Home() {
 
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const [openWSDropdown, setopenWSDropdown] = useState(false);
+  const [openProfileDropdown, setopenProfileDropdown] = useState(false);
+
+
+
+  const [bgColor, setbgColor] = useState("bg-white")
+
+
+  const dropdownRef = useRef(null);
+  const profileDropdownRef = useRef(null);
+
+  const navigate = useNavigate();
+
+
+
+  // Add a click event listener to the document
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target) )  {
+        // Click occurred outside the dropdown, close it
+        // setopenWSDropdown(false);
+        setopenProfileDropdown(false);
+      }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target))  {
+        // Click occurred outside the dropdown, close it
+        setopenWSDropdown(false);
+        // setopenProfileDropdown(false);
+      }
+    };
+    
+
+    // Attach the event listener
+    document.addEventListener('click', handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+
+
+
 
 
 
@@ -209,14 +373,141 @@ export default function Home() {
 
 
 
+        {/* <div>
+      {['left', 'right', 'top', 'bottom'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </div> */}
 
-      <div>
-        <p>Home</p>
-      </div>
+    
 
 
 
-      <div className="flex justify-center">
+
+
+
+
+
+
+
+        <div className="Nav">
+        <div className="px-5 sm:px-2 py-5 bg-blue-500">
+            <div className="flex items-end justify-between">
+                <div className="flex items-center text-5xl font-bold px-5">
+                    <p>Tasker</p>
+                </div>
+                <div className="pl-0 flex">
+
+
+
+                    <div className="flex items-end space-x-4">
+
+
+
+
+                      <div className="flex-col relative" ref={dropdownRef}>
+                        <div className="flex items-center space-x-1 text-lg md:text-2xl">
+                            <p>{workSpace}</p> 
+                            <IoMdArrowDropdown onClick={()=>{
+                              console.warn(openWSDropdown)
+
+                              setopenWSDropdown((prevOpenWSDropdown) => !prevOpenWSDropdown);
+                              console.warn(openWSDropdown)
+                              }} className="cursor-pointer"/>
+                        </div>
+                          {openWSDropdown && (
+                            <div className="max-h-0  bg-white">
+                              <div className="flex-col border border-black space-y-1 max-h-40 overflow-y-auto  bg-white">
+                                
+                                {Object.keys(userDataDict).slice(0,-1).map((key, index)=>(
+
+                                  <p className="cursor-pointer" 
+                                  onClick={()=>{
+                                      setworkSpace(key);
+                                      fetchData()
+                                      setopenWSDropdown(false)
+                                      }}
+                                   key={index}>
+                                   {key}
+                                   </p>                                 
+                            ))}                               
+                          </div>
+                          </div>
+                          )}
+                      </div>
+
+
+
+
+
+                        <div className="flex-col relative " ref={profileDropdownRef}>
+
+                        <div className="flex items-center space-x-1 text-3xl md:text-4xl">
+                          <p>&nbsp;</p>
+                          <CgProfile  onClick={()=>(setopenProfileDropdown(!openProfileDropdown))} className="cursor-pointer" />
+                        </div>
+
+                          {openProfileDropdown && (
+                            <div className="max-h-0 max-w-1 absolute right-2  bg-white">
+                              <div className="flex-col border border-black  space-y-1 max-h-40 overflow-y-auto p-2   bg-white">
+                                
+                                <p>{userName}</p>
+                                <p>{collectionName}@gmail.com</p>
+                                <p>Select Theme</p>
+                                
+                                <button onClick={()=>{setbgColor("bg-red-300")}} className="p-4 mr-1 bg-red-300" ></button>
+                                <button onClick={()=>{setbgColor("bg-purple-400")}} className="p-4  bg-purple-400" ></button><br/>
+                                <button onClick={()=>{setbgColor("bg-green-400")}} className="p-4 mr-1 bg-green-400" ></button>
+                                <button onClick={()=>{setbgColor("bg-pink-400")}} className="p-4 bg-pink-400" ></button><br/>
+                                <button onClick={()=>{setbgColor("bg-yellow-400")}} className="p-4 mr-1 bg-yellow-400" ></button>
+                                <button onClick={()=>{setbgColor("bg-white")}} className="p-4 bg-white border border-black border-solid" ></button><br/>
+
+                                <button
+                                 className="p-2 rounded-lg bg-blue-800 text-white"
+                                 onClick={()=>{
+                                  localStorage.removeItem("collectionName");
+                                  localStorage.removeItem("userName");
+                                  navigate('/')
+                                 }}
+                                 >Logout</button>
+                                                              
+                          </div>
+                          </div>
+                          )}
+
+                              
+                        </div>
+                          
+                       
+
+
+
+                        {/* <p><b>ogin</b></p> */}
+                        {/* <p><b>Register</b></p> */}
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+      <div className={"flex justify-center "+(bgColor)}>
         <div className="w-1/2">
           <div
            className=" border p-5 rounded-lg m-4 border-black"
@@ -522,6 +813,12 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+
+
+
+      <Footer />
     </>
   );
 }
