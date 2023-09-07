@@ -582,7 +582,7 @@ export default function Home() {
                     type={"ToDo"}
                     eventData={ {"status":"", "description" : "", "startDate" : "01-01-2023", "deadLine" : "01-01-2023"}}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeToDoEventDetails}>Close</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={closeToDoEventDetails}>Close</button>
 
                 </div>
                 </div>
@@ -602,8 +602,8 @@ export default function Home() {
                     type={selectedToDoEvent.eventType}
                     eventData={userDataDict[workSpace]?.[selectedToDoEvent.eventType][selectedToDoEvent.eventName]}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeToDoEventDetails}>Close</button>
-                    <button className="p-2 bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedToDoEvent.eventType, selectedToDoEvent.eventName)}>Delete</button>
+                    <button className="p-2   mx-5 rounded-lg font-semibold bg-red-400" onClick={closeToDoEventDetails}>Close</button>
+                    <button className="p-2   mx-5 rounded-lg font-semibold bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedToDoEvent.eventType, selectedToDoEvent.eventName)}>Delete</button>
                 </div>
                 </div>
 
@@ -682,7 +682,7 @@ export default function Home() {
                     type={"Doing"}
                     eventData={ {"status":"", "description" : "", "startDate" : "01-01-2023", "deadLine" : "01-01-2023"}}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeDoingEventDetails}>Close</button>
+                    <button className="p-2   mx-5 rounded-lg font-semibold bg-red-400" onClick={closeDoingEventDetails}>Close</button>
                 </div>
                 </div>
 
@@ -708,8 +708,8 @@ export default function Home() {
                     type={selectedDoingEvent.eventType}
                     eventData={userDataDict[workSpace]?.[selectedDoingEvent.eventType][selectedDoingEvent.eventName]}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeDoingEventDetails}>Close</button>
-                    <button className="p-2 bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedDoingEvent.eventType, selectedDoingEvent.eventName)}>Delete</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={closeDoingEventDetails}>Close</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedDoingEvent.eventType, selectedDoingEvent.eventName)}>Delete</button>
                 </div>
                 </div>
                 </>
@@ -784,7 +784,7 @@ export default function Home() {
                     type="Done"
                     eventData={ {"status":"", "description" : "", "startDate" : "01-01-2023", "deadLine" : "01-01-2023"}}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeDoneEventDetails}>Close</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={closeDoneEventDetails}>Close</button>
                 </div>
                 </div>
 
@@ -808,8 +808,8 @@ export default function Home() {
                     type={selectedDoneEvent.eventType}
                     eventData={userDataDict[workSpace]?.[selectedDoneEvent.eventType][selectedDoneEvent.eventName]}
                     />
-                    <button className="p-2 bg-red-400" onClick={closeDoneEventDetails}>Close</button>
-                    <button className="p-2 bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedDoneEvent.eventType, selectedDoneEvent.eventName)}>Delete</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={closeDoneEventDetails}>Close</button>
+                    <button className="p-2  mx-5 rounded-lg font-semibold bg-red-400" onClick={(e)=>deleteEvent(e, workSpace, selectedDoneEvent.eventType, selectedDoneEvent.eventName)}>Delete</button>
                 </div>
                 </div>
 
