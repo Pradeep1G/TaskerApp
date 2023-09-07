@@ -413,16 +413,16 @@ export default function Home() {
 
 
         <div className="Nav">
-        <div className="px-5 sm:px-2 py-5 bg-blue-500">
+        <div className="md:px-5 px-2 sm:px-2 py-5 bg-blue-500">
             <div className="flex items-end justify-between">
-                <div className="flex items-center text-5xl font-bold px-5">
+                <div className="flex items-center text-5xl font-bold md:px-5">
                     <p>Tasker</p>
                 </div>
                 <div className="pl-0 flex">
 
 
 
-                    <div className="flex items-end space-x-4">
+                    <div className="flex items-end md:space-x-4">
 
 
 

@@ -213,9 +213,9 @@ function App() {
 
 
       <div className='navbar'>
-      <div className="px-5 sm:px-2 py-5 bg-blue-400">
+      <div className="px-5  sm:px-2 py-5 bg-blue-400">
             <div className="flex items-end justify-between">
-                <div className="flex items-center text-blue-950 text-5xl font-bold px-5">
+                <div className="flex items-center text-blue-950 text-5xl font-bold  px-5">
                     <p>Tasker</p>
                 </div>
                 <div className="px-5 flex">
