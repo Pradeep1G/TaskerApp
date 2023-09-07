@@ -438,8 +438,8 @@ export default function Home() {
                               }} className="cursor-pointer"/>
                         </div>
                           {openWSDropdown && (
-                            <div className="max-h-0  bg-white">
-                              <div className="flex-col py-4 border border-black space-y-1 max-h-40 overflow-y-auto  bg-white">
+                            <div className="max-h-0  ">
+                              <div className="flex-col py-4 shadow-2xl border border-black rounded-lg space-y-1 max-h-40 overflow-y-auto p-2  bg-slate-200">
                                 
                                 {Object.keys(userDataDict).slice(0,-1).map((key, index)=>(
 
@@ -454,7 +454,7 @@ export default function Home() {
                                    </p>                                 
                             ))}
                             <button
-                             className="p-1 px-2 bg-blue-200 rounded-lg hover:text-xl"
+                             className="p-1 px-2 bg-blue-200 rounded-lg hover:text-xl font-semibold"
                             onClick={addWorkspace}
                             >Add + </button>                               
 
@@ -475,10 +475,10 @@ export default function Home() {
                         </div>
 
                           {openProfileDropdown && (
-                            <div className="max-h-0 max-w-1 absolute right-2  bg-white">
-                              <div className="flex-col border border-black  space-y-1 max-h-40 overflow-y-auto p-2   bg-white">
-                                
-                                <p>{userName}</p>
+                            <div className=" max-w-1 absolute right-2 ">
+                              <div className="flex-col space-y-3 py-5 shadow-2xl border border-black rounded-lg  max-h-200 overflow-y-auto p-2   bg-slate-200">
+                                <div className="flex justify-center text-4xl font-bold"><p className="border rounded-full p-5 px-7 bg-blue-900 text-white border-black">{userName.slice(0,1)}</p></div>
+                                <p >{userName}</p>
                                 <p>{collectionName}@gmail.com</p>
                                 <p>Select Theme</p>
                                 
@@ -490,7 +490,7 @@ export default function Home() {
                                 <button onClick={()=>{setbgColor("bg-white")}} className="p-4 bg-white border border-black border-solid" ></button><br/>
 
                                 <button
-                                 className="p-2 rounded-lg bg-blue-800 text-white"
+                                 className="p-2 rounded-lg my-2 bg-blue-800 text-white"
                                  onClick={()=>{
                                   localStorage.removeItem("collectionName");
                                   localStorage.removeItem("userName");
