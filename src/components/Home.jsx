@@ -11,7 +11,7 @@ export default function Home() {
 
 
   const severPath = "https://servetasker.onrender.com"
-//   const severPath = "http://127.0.0.1:5000";
+  // const severPath = "http://127.0.0.1:5000";
   const collectionName = "geddadavenkatapradeep";
 
   const [userDataDict, setuserDataDict] = useState({});
