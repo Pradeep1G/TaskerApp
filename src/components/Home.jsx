@@ -250,6 +250,19 @@ export default function Home() {
       }
 
 
+      const addWorkspace = async(e) => {
+        e.preventDefault();
+        const data={
+          "collectionName": collectionName
+        }
+        setIsLoading(true);
+        const response  =await axios.post(severPath+"/addWorkspace", data)
+        console.warn(response.data)
+        setIsLoading(false);
+        fetchData();
+        
+      }
+
 
 
 
@@ -426,11 +439,11 @@ export default function Home() {
                         </div>
                           {openWSDropdown && (
                             <div className="max-h-0  bg-white">
-                              <div className="flex-col border border-black space-y-1 max-h-40 overflow-y-auto  bg-white">
+                              <div className="flex-col py-4 border border-black space-y-1 max-h-40 overflow-y-auto  bg-white">
                                 
                                 {Object.keys(userDataDict).slice(0,-1).map((key, index)=>(
 
-                                  <p className="cursor-pointer" 
+                                  <p className="cursor-pointer py-1 hover:text-xl" 
                                   onClick={()=>{
                                       setworkSpace(key);
                                       fetchData()
@@ -439,7 +452,12 @@ export default function Home() {
                                    key={index}>
                                    {key}
                                    </p>                                 
-                            ))}                               
+                            ))}
+                            <button
+                             className="p-1 px-2 bg-blue-200 rounded-lg hover:text-xl"
+                            onClick={addWorkspace}
+                            >Add + </button>                               
+
                           </div>
                           </div>
                           )}
