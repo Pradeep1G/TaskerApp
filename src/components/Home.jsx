@@ -375,8 +375,12 @@ export default function Home() {
 
 
 
+  // const [bottonFooter, setbottomFooter] = useState(false)
+  // const checkFooterLocation 
 
 
+
+if(collectionName && userName){
 
   return (
     <>
@@ -410,7 +414,9 @@ export default function Home() {
 
 
 
+<div className="flex flex-col min-h-screen">
 
+<div className="flex-grow">
 
         <div className="Nav">
         <div className="md:px-5 px-2 sm:px-2 py-5 bg-blue-500">
@@ -837,13 +843,23 @@ export default function Home() {
 
 
 
+    </div>
 
 
-      <div className={"absolute  w-full "+(bgColor)}>
+      <div className={"  w-full "+(bgColor)}>
 
       <Footer />
       </div>
 
+  </div>
+
     </>
   );
+
+  }else{
+    navigate("/")
+
+  }
+
+
 }

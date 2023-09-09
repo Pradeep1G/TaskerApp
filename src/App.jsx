@@ -64,6 +64,20 @@ function App() {
 
 
 
+  useEffect(() => {
+    // Check if the value in localStorage exists
+    const collectionExists = localStorage.getItem('collectionName');
+    const userNameExists = localStorage.getItem("userName");
+
+    if (collectionExists && userNameExists) {
+      // If it doesn't exist, navigate to the home page (adjust the path as needed)
+      navigate("/home");
+    }
+  }, []); // Empty dependency array to run this effect once when the component mounts
+
+
+
+
 
 
 
@@ -495,6 +509,9 @@ function App() {
 
     </>
   )
+
+  
+
 }
 
 export default App
