@@ -147,7 +147,6 @@ export default function Home() {
   const [showDoingEventModal, setShowDoingEventModal] = useState(false);
   const [showDoneEventModal, setShowDoneEventModal] = useState(false);
 
-
   const [isLoading, setIsLoading] = useState(false);
 
   const [openWSDropdown, setopenWSDropdown] = useState(false);
@@ -235,6 +234,9 @@ export default function Home() {
 
     const deleteEvent = async(e, workSpace, eventType, eventName) => {
         e.preventDefault()
+        closeDoingEventDetails();
+        closeDoneEventDetails();
+        closeToDoEventDetails();
         const data = {
             "collectionName":collectionName,
             "WorkSpace":workSpace,
@@ -246,6 +248,7 @@ export default function Home() {
         const response = await axios.post(severPath+"/deleteEvent", data)
         console.warn(response.data)
         setIsLoading(false);
+        fetchData();
         
       }
 
@@ -310,12 +313,21 @@ export default function Home() {
     
     setIsLoading(true)
 
+    try{
+
     const response = await axios.post(severPath+"/shiftEvent", sendData)
     setIsLoading(false)
 
     fetchData();
     console.warn(response.data)
     }
+    catch(error){
+        setIsLoading(false);
+        alert("No duplicates are allowed!")
+    }
+
+
+  }
     shiftEventData();
 
   };
@@ -587,6 +599,7 @@ if(collectionName && userName){
                     <div className="modal-overlay">
                     <div className="bg-[#E3F6FF] rounded-2xl w-fit p-5">
                 <DisplayEvent
+                    closeToDoEventDetails={closeToDoEventDetails}
                     eventName={""}
                     workSpace={workSpace}
                     type={"ToDo"}

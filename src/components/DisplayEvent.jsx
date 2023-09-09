@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react"
 import axios from "axios";
 import { useActionData } from "react-router-dom";
+import LoadingScreen from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 export default function DisplayEvent(props){
 
@@ -19,6 +21,14 @@ const [deadLine, setdeadLine] = useState(props.eventData["deadLine"])
 const [description, setdescription] = useState(props.eventData["description"])
 const [eventStatus, seteventStatus] = useState(props.eventData["status"])
 
+
+
+const [isLoading, setIsLoading] = useState(false);
+const [isUpdated, setisUpdated] = useState(false);
+const [updating, setupdating] = useState("Updating...")
+const [hideSubmitBtn, sethideSubmitBtn] = useState(false);
+
+const navigate = useNavigate()
 
 useEffect(() => {
     // Convert ISO date format to "DD-MM-YYYY" format for display
@@ -83,6 +93,11 @@ const onDragStart = (e) => {
 
 const UpdateEventData = async(e) => {
     e.preventDefault()
+    setisUpdated(true)
+    sethideSubmitBtn(true);
+
+    // setshowCard(false)
+    // closeToDoEventDetails();
 
     const data = {
         "collectionName" : collectionName,
@@ -97,9 +112,12 @@ const UpdateEventData = async(e) => {
             "deadLine" : deadLine.split("-").reverse().join("-")
         }
     }
+    // window.location.reload();
+    
     const response = await axios.post(severPath+"/updateEventData", data)
     console.warn(response.data)
-    // setshowCard(false)
+    setisUpdated(false);
+    setupdating("Updated")
 }
 
 
@@ -110,7 +128,9 @@ const UpdateEventData = async(e) => {
     return(
         <>
 
-        
+
+{/* {  <LoadingScreen />} */}
+
 
 
         {/* <div
@@ -187,7 +207,7 @@ const UpdateEventData = async(e) => {
                     </div>
 
 
-                    <div className="flex items-center py-2">
+                    <div className="flex items-center py-2 pb-4">
                     <label>Status : &nbsp;</label>
 
                         <input 
@@ -202,8 +222,8 @@ const UpdateEventData = async(e) => {
                     
 
                     
-
-                    <button type="submit" className="p-2 my-5 rounded-lg font-semibold bg-blue-400">Submit</button>
+                    {isUpdated && <p className="pb-4">Updating...</p>}
+                    {!hideSubmitBtn && <button type="submit"   className="p-2 my-5 rounded-lg font-semibold bg-blue-400">Submit</button>}
 
                 </form>
 
