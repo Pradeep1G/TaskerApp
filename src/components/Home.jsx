@@ -136,7 +136,7 @@ export default function Home() {
 
   const [userDataDict, setuserDataDict] = useState({});
   const [NoOfDoingWorks, setNoOfDoingWorks] = useState(0);
-  const [workSpace, setworkSpace] = useState("WorkSpace0")
+  const [workSpace, setworkSpace] = useState(localStorage.getItem("WorkSpace"))
 
   const [selectedToDoEvent, setSelectedToDoEvent] = useState(null);
   const [selectedDoingEvent, setSelectedDoingEvent] = useState(null);
@@ -452,6 +452,7 @@ if(collectionName && userName){
                                   <p className="cursor-pointer py-1 hover:text-xl font-semibold" 
                                   onClick={()=>{
                                       setworkSpace(key);
+                                      localStorage.setItem("WorkSpace", key);
                                       fetchData()
                                       setopenWSDropdown(false)
                                       }}
@@ -500,6 +501,7 @@ if(collectionName && userName){
                                  onClick={()=>{
                                   localStorage.removeItem("collectionName");
                                   localStorage.removeItem("userName");
+                                  localStorage.removeItem("WorkSpace");
                                   navigate('/')
                                  }}
                                  >Logout</button>

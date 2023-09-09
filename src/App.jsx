@@ -103,6 +103,7 @@ function App() {
         // console.warn(response.data)
         localStorage.setItem("userName", response.data.name)
         localStorage.setItem("collectionName",LoginMail.slice(0,-10))
+        localStorage.setItem("WorkSpace","WorkSpace0")
         navigate('/home')
       }else{
         setIsLoading(false)
