@@ -318,7 +318,7 @@ function App() {
 
             <div className='flex border-b-2 border-solid border-black '><IoIosMail className='text-2xl'/>
               <input
-                className=' outline-none w-full  pb-2 px-2'
+                className=' outline-none w-full text-lg sm:text-sm pb-2 px-2'
                 type='email'
                 required
                 placeholder='mailId'
