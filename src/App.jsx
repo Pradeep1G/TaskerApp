@@ -226,6 +226,9 @@ function App() {
 {isLoading &&  <LoadingScreen />}
 
 
+<div className='flex flex-col min-h-screen'>
+
+    <div className='flex-grow'>
 
       <div className='navbar'>
       <div className="px-5  sm:px-2 py-5 bg-blue-400">
@@ -501,10 +504,12 @@ function App() {
 
 
           </div>
+    </div>
 
           <div className='pt-5 lg:pt-0'>
             <Footer />
           </div>
+</div>
 
       
 
