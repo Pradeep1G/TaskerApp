@@ -424,6 +424,7 @@ function App() {
 
 
 
+
             <div className={OTPVerfied ? 'pt-2 flex justify-center ': 'hidden'}>
               <p><b className='flex items-center'>VERIFIED<TiTickOutline className='text-xl'/></b></p>
             </div>
