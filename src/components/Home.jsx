@@ -550,7 +550,7 @@ if(collectionName && userName){
                 
                 <div key={index} className="flex items-center justify-center">
                 <button
-                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
+                className="flex text-xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.ToDo[work], work, "ToDo")}
@@ -647,7 +647,7 @@ if(collectionName && userName){
                 <div key={index} className="flex items-center justify-center">
                 
                 <button
-                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
+                className="flex text-xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.Doing[work], work, "Doing")}
@@ -751,7 +751,7 @@ if(collectionName && userName){
                 <div key={index} className="flex items-center justify-center">
                 
                 <button
-                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
+                className="flex text-xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.Done[work], work, "Done")}
