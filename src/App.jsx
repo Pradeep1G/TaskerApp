@@ -23,8 +23,8 @@ import LoadingScreen from './components/Loader';
 
 function App() {
 
-  const severPath = "https://servetasker.onrender.com"
-  // const severPath = "http://127.0.0.1:5000"
+  // const severPath = "https://servetasker.onrender.com"
+  const severPath = "http://127.0.0.1:5000"
 
   const [Register, setRegister] = useState(false)
   const [Login, setLogin] = useState(true)
@@ -114,6 +114,23 @@ function App() {
       alert("Invalid Mail Id")
     }
     setIsLoading(false)
+  }
+
+  const ForgetPassword = async(e)=>{
+    e.preventDefault()
+    const data = {
+      "mail": LoginMail
+    }
+    if(LoginMail==""){
+      alert("Please Enter Your MailId")
+    }
+    else{
+      isLoading(true);
+      const response = await axios.post(severPath+"/forgetPassword/"+LoginMail, data)
+      isLoading(false);
+      alert(response.data.message)
+      console.warn(response.data)
+    }
   }
 
   const  doRegister = async(e) => {
@@ -330,6 +347,8 @@ function App() {
 
             <div className='pt-5 pb-6'>
             <p><a className='' style={{ cursor: 'pointer', textDecoration:"underline", color:"blue" }}  onClick={toggleForm}>Create Account,</a> If not there.</p>
+            <p><a className='' style={{ cursor: 'pointer', textDecoration:"underline", color:"blue" }}  onClick={ForgetPassword}>Forget Password</a></p>
+
             </div>
 
           </div>
