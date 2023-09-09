@@ -4,8 +4,8 @@ import { useActionData } from "react-router-dom";
 
 export default function DisplayEvent(props){
 
-    const severPath = "https://servetasker.onrender.com"
-    //   const severPath = "http://127.0.0.1:5000"; 
+    // const severPath = "https://servetasker.onrender.com"
+      const severPath = "http://127.0.0.1:5000"; 
       const collectionName = localStorage.getItem("collectionName");
 
 const [showCard, setshowCard] = useState(true)

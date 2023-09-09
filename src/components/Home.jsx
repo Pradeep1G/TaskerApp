@@ -127,8 +127,8 @@ export default function Home() {
 
 
 
-  const severPath = "https://servetasker.onrender.com"
-  // const severPath = "http://127.0.0.1:5000";
+  // const severPath = "https://servetasker.onrender.com"
+  const severPath = "http://127.0.0.1:5000";
 
 
   const collectionName = localStorage.getItem("collectionName");
@@ -428,7 +428,7 @@ export default function Home() {
 
 
                       <div className="flex-col relative" ref={dropdownRef}>
-                        <div className="flex items-center space-x-1 text-lg md:text-2xl">
+                        <div className="flex items-center space-x-1 text-lg font-semibold md:text-2xl">
                             <p>{workSpace}</p> 
                             <IoMdArrowDropdown onClick={()=>{
                               console.warn(openWSDropdown)
@@ -443,7 +443,7 @@ export default function Home() {
                                 
                                 {Object.keys(userDataDict).slice(0,-1).map((key, index)=>(
 
-                                  <p className="cursor-pointer py-1 hover:text-xl" 
+                                  <p className="cursor-pointer py-1 hover:text-xl font-semibold" 
                                   onClick={()=>{
                                       setworkSpace(key);
                                       fetchData()
@@ -475,7 +475,7 @@ export default function Home() {
                         </div>
 
                           {openProfileDropdown && (
-                            <div className=" max-w-1 absolute right-2 ">
+                            <div className=" max-w-1 absolute right-2 text-lg font-semibold">
                               <div className="flex-col space-y-3 py-5 shadow-2xl border border-black rounded-lg  max-h-200 overflow-y-auto p-2   bg-slate-200">
                                 <div className="flex justify-center text-4xl font-bold"><p className="border rounded-full p-5 px-7 bg-blue-900 text-white border-black">{userName.slice(0,1)}</p></div>
                                 <p >{userName}</p>
@@ -486,7 +486,7 @@ export default function Home() {
                                 <button onClick={()=>{setbgColor("bg-purple-400")}} className="p-4  bg-purple-400" ></button><br/>
                                 <button onClick={()=>{setbgColor("bg-green-400")}} className="p-4 mr-1 bg-green-400" ></button>
                                 <button onClick={()=>{setbgColor("bg-pink-400")}} className="p-4 bg-pink-400" ></button><br/>
-                                <button onClick={()=>{setbgColor("bg-yellow-400")}} className="p-4 mr-1 bg-yellow-400" ></button>
+                                <button onClick={()=>{setbgColor("bg-[#191825]")}} className="p-4 mr-1 bg-[#191825]" ></button>
                                 <button onClick={()=>{setbgColor("bg-white")}} className="p-4 bg-white border border-black border-solid" ></button><br/>
 
                                 <button
@@ -525,22 +525,24 @@ export default function Home() {
 
 
 
-      <div className={"flex justify-center overflow-y-scroll "+(bgColor)}>
-        <div className="w-1/2">
-          <div
-           className=" border p-5 rounded-lg m-4 border-black"
+      <div className={" flex-col  "+(bgColor)}>
+
+        <div className=" md:flex justify-center items-start py-20 md:px-20 space-y-5 md:space-x-20">
+                  
+        <div
+           className="bg-[#E3F6FF] border p-5 rounded-lg m-4  md:px-8 lg:px-20 md:py-10 py-8"
             id="ToDo"
             onDragOver={(e) => onDragOver(e, "ToDo")} // Pass the target ID to onDragOver
             onDrop={(e) => onDrop(e, "ToDo")} // Pass the target ID to onDrop
             >
-            <p>ToDo</p>
+            <p className="text-3xl font-bold pb-2">ToDo</p>
 
 
             {userDataDict[workSpace]?.ToDo?.AllWorks.map((work, index) => (
                 
                 <div key={index} className="flex items-center justify-center">
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-2 rounded-lg my-2  border-solid"
+                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.ToDo[work], work, "ToDo")}
@@ -561,7 +563,7 @@ export default function Home() {
                         
                 <div className="flex justify-center">
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
+                className="flex items-center border text-3xl text-white bg-[#27005D] border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
                     
                     // draggable="true"
                     // onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.ToDo[work], work, "ToDo")}
@@ -624,12 +626,12 @@ export default function Home() {
           </div>
 
           <div
-           className="border p-5 rounded-lg m-4 border-black"
+           className="bg-[#E3F6FF] border p-5 rounded-lg m-4  md:px-8 lg:px-20 md:py-10 py-8"
             id="Doing"
             onDragOver={(e) => onDragOver(e, "Doing")} // Pass the target ID to onDragOver
             onDrop={(e) => onDrop(e, "Doing")} // Pass the target ID to onDrop
             >
-            <p>Doing</p>
+            <p className="text-3xl font-bold pb-2">Doing</p>
 
 
 
@@ -637,7 +639,7 @@ export default function Home() {
                 <div key={index} className="flex items-center justify-center">
                 
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-2 rounded-lg my-2 border-solid"
+                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.Doing[work], work, "Doing")}
@@ -661,7 +663,7 @@ export default function Home() {
                 <div className="flex justify-center">
 
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
+                className="flex items-center border text-3xl text-white bg-[#27005D] border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
                     
                     // draggable="true"
                     // onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.ToDo[work], work, "ToDo")}
@@ -730,18 +732,18 @@ export default function Home() {
           </div>
 
           <div
-           className="border p-5 rounded-lg m-4 border-black"
+           className="bg-[#E3F6FF] border p-5 rounded-lg m-4   md:px-8 lg:px-20 md:py-10 py-8"
             id="Done"
             onDragOver={(e) => onDragOver(e, "Done")} // Pass the target ID to onDragOver
             onDrop={(e) => onDrop(e, "Done")} // Pass the target ID to onDrop
             >
-            <p>Done</p>
+            <p className="text-3xl font-bold pb-2">Done</p>
 
             {userDataDict[workSpace]?.Done?.AllWorks.map((work, index) => (
                 <div key={index} className="flex items-center justify-center">
                 
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-2 rounded-lg my-2 b border-solid"
+                className="flex text-2xl font-semibold text-white bg-[#3330E4] items-center border  pl-3 pr-3 py-4 rounded-lg my-2  border-solid"
                     key={index}
                     draggable="true"
                     onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.Done[work], work, "Done")}
@@ -763,7 +765,7 @@ export default function Home() {
                 <div className="flex justify-center">
 
                 <button
-                className="flex items-center border border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
+                className="flex items-center border text-3xl text-white bg-[#27005D] border-black pl-2 pr-2 py-1 rounded-lg my-2  border-solid"
                     
                     // draggable="true"
                     // onDragStart={(e) => onDragStart(e, userDataDict[workSpace]?.ToDo[work], work, "ToDo")}
@@ -829,6 +831,7 @@ export default function Home() {
             
             {/* <p>{userDataDict?.WorkSpace0?.Doing?.AllWorks[0]}</p> */}
           </div>
+
         </div>
       </div>
 
@@ -836,7 +839,7 @@ export default function Home() {
 
 
 
-      <div className="absolute w-full">
+      <div className={"absolute  w-full "+(bgColor)}>
 
       <Footer />
       </div>
