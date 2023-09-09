@@ -498,7 +498,7 @@ function App() {
             </div>
 
             <div className='pt-8'>
-              <button  className='bg-blue-500 text-blue-950 p-4 px-8 text-xl rounded-xl'>Login</button>
+              <button  className='bg-blue-500 text-blue-950 p-4 px-8 text-xl rounded-xl'>Register</button>
             </div>
 
             <div className='pt-5 pb-6'>
