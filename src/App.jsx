@@ -331,7 +331,7 @@ function App() {
               <input
                 className=' outline-none w-full   pb-2 px-2'
                 required
-                type='text'
+                type='password'
                 placeholder='password'
                 onChange={(e) => setLoginPassword(e.target.value)}
                 />
