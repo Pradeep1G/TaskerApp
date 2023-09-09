@@ -23,8 +23,8 @@ import LoadingScreen from './components/Loader';
 
 function App() {
 
-  const severPath = "https://servetasker.onrender.com"
-  // const severPath = "http://127.0.0.1:5000"
+  // const severPath = "https://servetasker.onrender.com"
+  const severPath = "http://127.0.0.1:5000"
 
   const [Register, setRegister] = useState(false)
   const [Login, setLogin] = useState(true)

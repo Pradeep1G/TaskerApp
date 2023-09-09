@@ -130,16 +130,16 @@ const UpdateEventData = async(e) => {
 
 
 
-            <div className={showCard ? "":"hidden"}>
+            <div className={showCard ? "":"hidden "}>
 
-            <div className="">
+            <div className="font-semibold ">
 
                 <form onSubmit={UpdateEventData}>
 
                     <div className="py-2">
                         <label>Event Name : &nbsp;</label>
                         <input 
-                            className="px-1 border border-black"
+                            className="px-1 py-2 rounded-md bg-gray-200"
                             placeholder="Event Name"
                             type="text"
                             contentEditable
@@ -149,11 +149,11 @@ const UpdateEventData = async(e) => {
                     </div>
 
 
-                    <div className="flex py2">
+                    <div className="flex items-center py2">
                     <label>Start Date : &nbsp;</label>
 
                         <input 
-                            className=" pl-2"
+                            className=" px-1 py-2 rounded-md bg-gray-200"
                             type="date"
                             contentEditable
                             value={startDate}
@@ -161,11 +161,11 @@ const UpdateEventData = async(e) => {
                             ></input>
                     </div>
 
-                    <div className="flex py-2">
+                    <div className="flex items-center py-2">
                     <label>End Date : &nbsp;</label>
 
                         <input 
-                            className="pl-2"
+                            className="px-1 py-2 rounded-md bg-gray-200"
                             type="date"
                             contentEditable
                             value={deadLine}
@@ -178,7 +178,7 @@ const UpdateEventData = async(e) => {
                     <label>Description : &nbsp;</label>
                     </div>
                         <textarea
-                            className="border border-black ml-1 p-1"
+                            className=" ml-1 px-1 py-2 rounded-md bg-gray-200"
                             type="text"
                             placeholder="Describe"
                             value={description}
@@ -187,11 +187,11 @@ const UpdateEventData = async(e) => {
                     </div>
 
 
-                    <div className="flex items-start py-2">
+                    <div className="flex items-center py-2">
                     <label>Status : &nbsp;</label>
 
                         <input 
-                            className="px-1 border border-black"
+                            className="px-1 py-2 rounded-md bg-gray-200"
                             type="text"
                             placeholder="Set Status"
                             contentEditable

@@ -577,7 +577,7 @@ export default function Home() {
 
                 {showToDoEventModal && (
                     <div className="modal-overlay">
-                    <div className="bg-white border border-black rounded-2xl w-fit p-5">
+                    <div className="bg-[#E3F6FF] rounded-2xl w-fit p-5">
                 <DisplayEvent
                     eventName={""}
                     workSpace={workSpace}
@@ -677,7 +677,7 @@ export default function Home() {
 
                 {showDoingEventModal && (
                     <div className="modal-overlay">
-                    <div className="bg-white border border-black rounded-2xl w-fit p-5">
+                    <div className="bg-[#E3F6FF] rounded-2xl w-fit p-5">
                 <DisplayEvent
                     eventName={""}
                     workSpace={workSpace}
@@ -779,7 +779,7 @@ export default function Home() {
 
                 {showDoneEventModal && (
                     <div className="modal-overlay">
-                    <div className="bg-white border border-black rounded-2xl w-fit p-5">
+                    <div className="bg-[#E3F6FF] rounded-2xl w-fit p-5">
                 <DisplayEvent
                     eventName={""}
                     workSpace={workSpace}
