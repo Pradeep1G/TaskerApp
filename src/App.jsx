@@ -125,9 +125,9 @@ function App() {
       alert("Please Enter Your MailId")
     }
     else{
-      isLoading(true);
+      setIsLoading(true);
       const response = await axios.post(severPath+"/forgetPassword/"+LoginMail, data)
-      isLoading(false);
+      setIsLoading(false);
       alert(response.data.message)
       console.warn(response.data)
     }
