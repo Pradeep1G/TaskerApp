@@ -8,6 +8,13 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
+This is a fullstack website using Vite + React.js as Frontend and Flask(Python) as Backend Server and MongoDB as Database.
+Backened is also deployed in my github account. click the link to see the repository.
+This project is about to store the users Events in three different categories - ToDo, Doing and Done.
+Easily we can update and remove events from any category and change category of an event by dragging them to other category.
+We can also change colour theme of the web page.
+And also we can add as many as workspaces.
+
 This is Login Page Image
 ![Screenshot 2023-09-09 192159](https://github.com/Pradeep1G/TaskerApp/assets/98323512/ed7ffb28-5056-4e42-a257-3bc56ba01a97)
 
