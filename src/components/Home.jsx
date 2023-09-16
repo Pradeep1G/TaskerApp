@@ -501,12 +501,12 @@ if(collectionName && userName){
                                 <p>{collectionName}@gmail.com</p>
                                 <p>Select Theme</p>
                                 
-                                <button onClick={()=>{setbgColor("bg-red-300")}} className="p-4 mr-1 bg-red-300" ></button>
-                                <button onClick={()=>{setbgColor("bg-purple-400")}} className="p-4  bg-purple-400" ></button><br/>
-                                <button onClick={()=>{setbgColor("bg-green-400")}} className="p-4 mr-1 bg-green-400" ></button>
-                                <button onClick={()=>{setbgColor("bg-pink-400")}} className="p-4 bg-pink-400" ></button><br/>
-                                <button onClick={()=>{setbgColor("bg-[#191825]")}} className="p-4 mr-1 bg-[#191825]" ></button>
-                                <button onClick={()=>{setbgColor("bg-white")}} className="p-4 bg-white border border-black border-solid" ></button><br/>
+                                <button onClick={()=>{setbgColor("bg-red-300"); document.getElementById("root").style.backgroundColor="#FCA5A5"}} className="p-4 mr-1 bg-red-300" ></button>
+                                <button onClick={()=>{setbgColor("bg-purple-400"); document.getElementById("root").style.backgroundColor="#C084FC"}} className="p-4  bg-purple-400" ></button><br/>
+                                <button onClick={()=>{setbgColor("bg-green-400"); document.getElementById("root").style.backgroundColor="#4ADE80"}} className="p-4 mr-1 bg-green-400" ></button>
+                                <button onClick={()=>{setbgColor("bg-pink-400"); document.getElementById("root").style.backgroundColor="#F472B6"}} className="p-4 bg-pink-400" ></button><br/>
+                                <button onClick={()=>{setbgColor("bg-[#191825]"); document.getElementById("root").style.backgroundColor="#191825"}} className="p-4 mr-1 bg-[#191825]" ></button>
+                                <button onClick={()=>{setbgColor("bg-white"); document.getElementById("root").style.backgroundColor="white"}} className="p-4 bg-white border border-black border-solid" ></button><br/>
 
                                 <button
                                  className="p-2 rounded-lg my-2 bg-blue-800 text-white"
